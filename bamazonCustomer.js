@@ -1,14 +1,15 @@
 //require mysql and inquirer
-var mysql = require('mysql');
-var inquirer = require('inquirer');
+const mysql = require('mysql');
+const inquirer = require('inquirer');
 //create connection to db
-var connection = mysql.createConnection({
+const config = require("./config");
+const connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "Yankees2!",
+  password: config.password,
   database: "bamazon"
-})
+});
 
 function start(){
 //prints the items for sale and their details
