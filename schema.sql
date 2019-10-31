@@ -14,6 +14,8 @@ CREATE TABLE products(
 
 
 Select * FROM products;
+/** populates sql products table with items **/
+
 
 INSERT INTO products (item_id, product_name, department_name, price, stock_quantity) 
 VALUES (1, "KitchenAid Stand Mixer", "Home & Kitchen",260, 20),

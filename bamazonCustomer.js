@@ -20,7 +20,7 @@ connection.query('SELECT * FROM products', function(err, res){
 
   for(var i = 0; i<res.length;i++){
     console.log("ID: " + res[i].item_id + " | " + "Product: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "price: " + res[i].price + " | " + "QTY: " + res[i].stock_quantity);
-    console.log('--------------------------------------------------------------------------------------------------')
+    console.log('---------------------------------------------------------------------------------------------')
   }
 
   console.log(' ');
@@ -39,7 +39,7 @@ connection.query('SELECT * FROM products', function(err, res){
     },
     {
       type: "input",
-      name: "qty",
+      name: "quantity",
       message: "How much would you like to purchase?",
       validate: function(value){
         if(isNaN(value)){
@@ -51,7 +51,7 @@ connection.query('SELECT * FROM products', function(err, res){
     }
     ]).then(function(ans){
       var whatToBuy = (ans.id)-1;
-      var howMuchToBuy = parseInt(ans.qty);
+      var howMuchToBuy = parseInt(ans.quantity);
       var grandTotal = parseFloat(((res[whatToBuy].price)*howMuchToBuy).toFixed(2));
 
       //check if quantity is sufficient
@@ -62,7 +62,7 @@ connection.query('SELECT * FROM products', function(err, res){
         {item_id: ans.id}
         ], function(err, result){
             if(err) throw err;
-            console.log("Your total is $" + grandTotal.toFixed(2) + ". Your item(s) will be shipped to you in 3-5 business days.");
+            console.log("Success! Your total is $" + grandTotal.toFixed(2) + ".");
             process.exit(1);
         });
 
