@@ -9,4 +9,4 @@ the table is updated to reflect the quantity of the item the user would like.
 ![](secondCommand.gif)
 
 if the quantity is in stock the total amount is displayed.
-![](finalCommand.gif)
+![](finishCommand.gif)
