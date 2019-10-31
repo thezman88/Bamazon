@@ -39,7 +39,7 @@ connection.query('SELECT * FROM products', function(err, res){
     },
     {
       type: "input",
-      name: "quantity",
+      name: "stock",
       message: "How much would you like to purchase?",
       validate: function(value){
         if(isNaN(value)){
@@ -51,7 +51,7 @@ connection.query('SELECT * FROM products', function(err, res){
     }
     ]).then(function(ans){
       var whatToBuy = (ans.id)-1;
-      var howMuchToBuy = parseInt(ans.quantity);
+      var howMuchToBuy = parseInt(ans.stock);
       var grandTotal = parseFloat(((res[whatToBuy].price)*howMuchToBuy).toFixed(2));
 
       //check if quantity is sufficient
